@@ -22,8 +22,8 @@ jobs:
 
       - name: Upgrade pip and install dependencies
         run: |
-          pip install --upgrade pip
-          pip install selenium requests futures eventlet opencv-python Beautifulsoup4 translate termcolor func_timeout replace input opencc pypinyin pytz tqdm
+         pip install --upgrade pip
+         pip install selenium requests futures eventlet opencv-python beautifulsoup4 translate termcolor func_timeout opencc-python-reimplemented pypinyin pytz tqdm
 
       - name: Run iptv
         run: python ${{ github.workspace }}/IPTV/分类去重.py
