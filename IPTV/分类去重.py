@@ -4,14 +4,19 @@ import replace
 import fileinput
 ############################################################################排序############################################################################################################
 #讀存網路資料
-wget https://raw.githubusercontent.com/WaykeYu/IPTV1/refs/heads/main/GAT.m3u?token=GHSAT0AAAAAAC2K736LFVN3SNWF44IIKNNAZ5FYKTA -O TW.txt
+wget -q --timeout=10 -O TW.txt https://raw.githubusercontent.com/WaykeYu/IPTV1/main/GAT.m3u || echo "❌ 下载失败"
 
 with open('TW.txt', 'r', encoding='UTF-8') as f:
-    lines = f.readlines()
-lines.sort()
+    lines = [line.strip() for line in f if line.strip()]
+
+# 使用自然排序，确保 CH2 排在 CH10 之前
+lines = sorted(lines, key=natural_sort_key)
+
+# 写回文件
 with open('TW.txt', 'w', encoding='UTF-8') as f:
-    for line in lines:
-        f.write(line)
+    f.writelines(line + '\n' for line in lines)
+
+print("✅ 文件排序完成！")
 
 
 ################################################################定义关键词分割规则
