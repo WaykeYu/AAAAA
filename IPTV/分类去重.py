@@ -4,7 +4,7 @@ import replace
 import fileinput
 ############################################################################排序############################################################################################################
 #讀存網路資料
-wget -q --timeout=10 -O TW.txt https://raw.githubusercontent.com/WaykeYu/IPTV1/main/GAT.m3u || echo "❌ 下载失败"
+wget https://raw.githubusercontent.com/WaykeYu/IPTV1/main/GAT.m3u -O TW.txt
 
 with open('TW.txt', 'r', encoding='UTF-8') as f:
     lines = [line.strip() for line in f if line.strip()]
