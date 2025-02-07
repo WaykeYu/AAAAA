@@ -3,6 +3,9 @@ import os
 import replace
 import fileinput
 ############################################################################排序############################################################################################################
+#讀存網路資料
+wget https://raw.githubusercontent.com/WaykeYu/IPTV1/refs/heads/main/GAT.m3u?token=GHSAT0AAAAAAC2K736LFVN3SNWF44IIKNNAZ5FYKTA -O TW.txt
+
 with open('TW.txt', 'r', encoding='UTF-8') as f:
     lines = f.readlines()
 lines.sort()
